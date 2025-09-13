@@ -5,4 +5,5 @@ description = "Agents for fact-checking using LLMs"
 readme = "README.md"
 requires-python = ">=3.12.4"
 dependencies = [
+    "strands-agents>=1.8.0",
 ]
