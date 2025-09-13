@@ -8,3 +8,9 @@ Your should generate maximum 6 claims.
 3. Avoid vague language and subjective terms.
 4. Each claim should be based solely on the provided summary.
 """
+
+CLAIM_VERIFICATION_AGENT_PROMPT = """
+You are a Claim Verification Agent that verifies the truthfulness of claims.
+Whenever you need to verify a claim, address a confidenceLevel. If you are not confident in the evaluation (confidence level < 0.8), 
+use the claims_search_tool to gather more information.
+"""

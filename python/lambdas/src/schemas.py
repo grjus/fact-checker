@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 
 
+
 class Claims(BaseModel):
     claims: list[str] = Field(...,
                               description="A list of concise, factual claims based on the provided summary. "
