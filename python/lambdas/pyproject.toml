@@ -1,0 +1,8 @@
+[project]
+name = "fact-checker-agents"
+version = "0.1.0"
+description = "Agents for fact-checking using LLMs"
+readme = "README.md"
+requires-python = ">=3.12.4"
+dependencies = [
+]
