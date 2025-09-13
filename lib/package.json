@@ -1,6 +1,5 @@
 {
   "name": "fact-check-lambdas",
   "version": "1.0.0",
-  "dependencies": {
-  }
+  "dependencies": {}
 }
