@@ -4,9 +4,8 @@ from strands import Agent, tool
 from strands.models.bedrock import BedrockModel
 from strands.tools.executors import SequentialToolExecutor
 
-from prompts import CLAIM_GENERATION_AGENT_PROMPT, CLAIM_VERIFICATION_AGENT_PROMPT
-from serper_client import claims_search_tool as cst
-from ssm_client import get_secret
+from prompts import CLAIM_GENERATION_AGENT_PROMPT, CLAIM_VERIFICATION_AGENT_PROMPT, REPORTING_AGENT_PROMPT
+
 
 os.environ["SECRET_NAME"] = "your-news/fact-checker"
 SECRET_NAME = os.getenv("SECRET_NAME")
@@ -34,4 +33,11 @@ claim_verification_agent = Agent(
     callback_handler=None,
     tool_executor=SequentialToolExecutor(),
     tools=["./tools/search_tool.py"],
+)
+
+reporting_agent = Agent(
+    system_prompt=REPORTING_AGENT_PROMPT,
+    model=model,
+    callback_handler=None,
+    tools=[],
 )

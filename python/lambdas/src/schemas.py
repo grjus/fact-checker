@@ -3,13 +3,6 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 
-class Claims(BaseModel):
-    claims: list[str] = Field(
-        ...,
-        description="A list of concise, factual claims based on the provided summary. "
-        "Each claim should be a single sentence, no more than 10 words.",
-        max_items=2,
-    )
 
 
 class ClaimSearch(BaseModel):
@@ -48,7 +41,11 @@ class VerifiedClaim(BaseModel):
         ...,
         description="Indicates whether the claims_search_tool was used to gather additional information for verification.",
     )
-    search_results: ClaimSearch | None = Field(
+    search_results: list[ClaimSearch] | None = Field(
         None,
         description="Relevant search results used to verify the claim, if applicable.",
     )
+
+class ReporterOutput(BaseModel):
+    claim:list[VerifiedClaim] = Field( description="List of verified claims.", default=[])
+    summary:list[str] = Field( description="Concise summary of the fact-checking results.", default=[])
