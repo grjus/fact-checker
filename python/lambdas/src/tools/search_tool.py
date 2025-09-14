@@ -15,4 +15,3 @@ def search_tool(claims: list[str]) -> str:
     results = cst(claims, secret.GOOGLE_SEARCH)
     output = [each.model_dump() for each in results]
     return json.dumps(output)
-

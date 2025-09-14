@@ -3,8 +3,6 @@ from typing import Optional
 from pydantic import BaseModel, Field
 
 
-
-
 class ClaimSearch(BaseModel):
     snippet: Optional[str] = Field(
         description="A brief snippet from the search result that is relevant to the claim.",
@@ -46,6 +44,11 @@ class VerifiedClaim(BaseModel):
         description="Relevant search results used to verify the claim, if applicable.",
     )
 
+
 class ReporterOutput(BaseModel):
-    claim:list[VerifiedClaim] = Field( description="List of verified claims.", default=[])
-    summary:list[str] = Field( description="Concise summary of the fact-checking results.", default=[])
+    claim: list[VerifiedClaim] = Field(
+        description="List of verified claims.", default=[]
+    )
+    summary: list[str] = Field(
+        description="Concise summary of the fact-checking results.", default=[]
+    )
