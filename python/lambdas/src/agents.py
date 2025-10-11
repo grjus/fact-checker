@@ -14,7 +14,7 @@ from prompts import (
 modelId = "eu.anthropic.claude-3-7-sonnet-20250219-v1:0"
 
 inference_profile = {
-    "max_tokens": 8100,
+    "max_tokens": 4096,
     "temperature": 0.0,
     "top_p": 1.0,
 }
